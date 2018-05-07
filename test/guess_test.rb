@@ -1,8 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require 'pry'
-require './lib/card'
-require './lib/guess'
 
 class GuessTest < Minitest::Test
   def test_guess_exists
