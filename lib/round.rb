@@ -16,13 +16,21 @@ class Round
   end
 
   def record_guess(guess)
-    @guesses.push(Guess.new(guess, @deck.cards[@counter]))
+    @counter += 1
+    @guesses.push(Guess.new(guess, @deck.cards[@counter -1]))
   end
 
   def number_correct
     numb_correct = 0
-    if @guesses[@counter].correct? == true
-      numb_correct += 1
+    @guesses.each do |guess|
+      if guess.correct? == true
+        numb_correct += 1
+      end
     end
+    numb_correct
+  end
+
+  def percent_correct
+    (number_correct / @guesses.count.to_f) * 100
   end
 end
