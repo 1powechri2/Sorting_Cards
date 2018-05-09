@@ -4,6 +4,7 @@ class Deck
   def initialize(cards = nil)
     @cards        = cards
     @cards_sorted = []
+
     @counter      = 0
   end
 
@@ -26,8 +27,9 @@ class Deck
   end
 
   def merge_sort
-    # order halves
-    # merge splits
+    deck_split = split_cards(@cards)
+    sorted_pairs = sort_pairs(deck_split)
+    split_sorted_pairs(sorted_pairs)
   end
 
   def split_cards(cards)
@@ -42,5 +44,13 @@ class Deck
         sub_arr[0],sub_arr[1] = sub_arr[1],sub_arr[0]
       end
     end
+  end
+
+  def split_sorted_pairs(sorted_pairs)
+    cards_for_merge = Hash.new
+    sorted_pairs.each_with_index do |array, index|
+      cards_for_merge[index] = array
+    end
+    cards_for_merge
   end
 end
