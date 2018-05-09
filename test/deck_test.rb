@@ -24,27 +24,7 @@ class DeckTest < Minitest::Test
     assert_equal [@card_2, @card_1, @card_3], @deck.sort
   end
 
-  def test_split_cards
-    actual   = @deck.split_cards(@deck.cards)
-    expected = [[@card_1, @card_2], [@card_3]]
-    assert_equal expected, actual
-  end
-
-  def test_sort_pairs
-    pairs    = @deck.split_cards(@deck.cards)
-    actual   = @deck.sort_pairs(pairs)
-    expected = [[@card_2, @card_1], [@card_3]]
-    assert_equal expected, actual
-  end
-
-  def test_split_sorted_pairs
-    pairs          = @deck.split_cards(@deck.cards)
-    sorted_pairs   = @deck.sort_pairs(pairs)
-    split_pairs    = @deck.split_sorted_pairs(sorted_pairs)
-    assert_equal Hash, split_pairs.class
-  end
-
-  def test_merge_sort
-    assert_equal [@card_2, @card_1, @card_3], @deck.merge_sort
-  end
+  # def test_merge_sort
+  #   assert_equal [@card_2, @card_1, @card_3], @deck.merge_sort
+  # end
 end

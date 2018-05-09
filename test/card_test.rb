@@ -4,21 +4,20 @@ require 'pry'
 require './lib/card'
 
 class CardTest < Minitest::Test
-  def test_that_card_exists
-    card = Card.new("Ace", "Spades")
+  def setup
+    @card = Card.new("Ace", "Spades")
+  end
 
-    assert_instance_of Card, card
+  def test_that_card_exists
+
+    assert_instance_of Card, @card
   end
 
   def test_card_value
-    card = Card.new("Ace", "Spades")
-
-    assert "Ace", card.value
+    assert "Ace", @card.value
   end
 
   def test_card_suit
-    card = Card.new("Ace", "Spades")
-
-    assert "Spades", card.suit
+    assert "Spades", @card.suit
   end
 end
