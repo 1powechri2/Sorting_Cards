@@ -1,11 +1,13 @@
 require './test/test_helper'
-require 'pry'
 
 class RoundTest < Minitest::Test
   def setup
     card_1  = Card.new("3","Hearts")
+
     card_2  = Card.new("4", "Clubs")
+
     deck    = Deck.new([card_1, card_2])
+    
     @round  = Round.new(deck)
   end
 
@@ -69,10 +71,28 @@ class RoundTest < Minitest::Test
     @round.record_guess("Jack of Diamonds")
 
     assert_equal Guess, @round.guesses[1].class
+  end
+
+  def test_second_guess_count
+    @round.record_guess("3 of Hearts")
+
+    @round.record_guess("Jack of Diamonds")
 
     assert_equal 2, @round.guesses.count
+  end
+
+  def test_second_guess_feedback
+    @round.record_guess("3 of Hearts")
+
+    @round.record_guess("Jack of Diamonds")
 
     assert_equal "Incorrect.", @round.guesses.last.feedback
+  end
+
+  def test_second_guess_correct_guess_count
+    @round.record_guess("3 of Hearts")
+
+    @round.record_guess("Jack of Diamonds")
 
     assert_equal 1, @round.number_correct
   end

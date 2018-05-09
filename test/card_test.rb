@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/card'
 
 class CardTest < Minitest::Test
@@ -9,7 +8,6 @@ class CardTest < Minitest::Test
   end
 
   def test_that_card_exists
-
     assert_instance_of Card, @card
   end
 

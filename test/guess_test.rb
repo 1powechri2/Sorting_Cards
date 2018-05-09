@@ -1,11 +1,12 @@
 require './test/test_helper'
-require 'pry'
 
 class GuessTest < Minitest::Test
   def setup
     card  = Card.new("10", "Hearts")
+
     @guess = Guess.new("10 of Hearts", card)
   end
+
   def test_guess_exists
     assert_instance_of Guess, @guess
   end
@@ -28,6 +29,7 @@ class GuessTest < Minitest::Test
 
   def test_guess_is_incorrect
     card = Card.new("Queen", "Clubs")
+
     guess = Guess.new("2 of Diamonds", card)
 
     refute guess.correct?
@@ -35,6 +37,7 @@ class GuessTest < Minitest::Test
 
   def test_feedback_is_negative
     card = Card.new("Queen", "Clubs")
+
     guess = Guess.new("2 of Diamonds", card)
 
     assert_equal "Incorrect.", guess.feedback

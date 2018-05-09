@@ -1,5 +1,3 @@
-require './lib/guess'
-
 class Round
   attr_reader :deck,
               :guesses,
