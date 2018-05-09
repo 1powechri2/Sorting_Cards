@@ -24,4 +24,23 @@ class Deck
       sort
     end
   end
+
+  def merge_sort
+    # order halves
+    # merge splits
+  end
+
+  def split_cards(cards)
+    cards.each_slice(2).to_a
+  end
+
+  def sort_pairs(arr)
+    arr.map do |sub_arr|
+      if sub_arr[1] == nil
+        sub_arr
+      elsif sub_arr[0].value > sub_arr[1].value
+        sub_arr[0],sub_arr[1] = sub_arr[1],sub_arr[0]
+      end
+    end
+  end
 end
