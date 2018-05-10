@@ -24,4 +24,17 @@ class Deck
       sort
     end
   end
+
+  def merge_sort
+    half = @cards.length/2
+    left = @cards.take(half)
+    right = @cards.drop(half)
+    if left.first.value > right.first.value
+      @cards_sorted.push(left.shift)
+    else
+      @cards_sorted.push(right.shift)
+    end
+    merge_sort
+    @cards_sorted
+  end
 end
