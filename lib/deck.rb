@@ -1,3 +1,4 @@
+require 'pry'
 class Deck
   attr_reader :cards
 
@@ -32,10 +33,13 @@ class Deck
     half = @cards.length/2
     left = @cards.take(half)
     right = @cards.drop(half)
-      if left.first.value < right.first.value
-        @cards_sorted.push(left.shift)
+    binding.pry
+      if left.first.value <= right.first.value
+        @cards_sorted.push(left.first)
+        left.shift
       else
-        @cards_sorted.push(right.shift)
+        @cards_sorted.push(right.first)
+        right.shift
       end
       merge_sort
     end
