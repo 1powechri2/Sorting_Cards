@@ -1,4 +1,5 @@
 require './test/test_helper'
+require 'pry'
 
 class DeckTest < Minitest::Test
   def setup
@@ -27,6 +28,6 @@ class DeckTest < Minitest::Test
   end
 
   def test_merge_sort
-    assert_equal [@card_2, @card_1, @card_3], @deck.cards
+    assert_equal [@card_2, @card_1, @card_3], @deck.merge_sort
   end
 end
